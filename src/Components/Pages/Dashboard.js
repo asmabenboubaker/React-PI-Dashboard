@@ -2,9 +2,11 @@ import React from 'react'
 
 function Dashboard() {
   return (
-    <div>
-    <div className="row">
-      <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+
+<div class="container-fluid py-4">
+    {/* <div className="row">
+      {/* <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
         <div className="card">
           <div className="card-header p-3 pt-2">
             <div className="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
@@ -20,8 +22,8 @@ function Dashboard() {
             <p className="mb-0"><span className="text-success text-sm font-weight-bolder">+55% </span>than lask week</p>
           </div>
         </div>
-      </div>
-      <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+      </div> */}
+      {/* <div className="col-xl-3 col-sm-6 mb-xl-0 mb-4">
         <div className="card">
           <div className="card-header p-3 pt-2">
             <div className="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
@@ -71,8 +73,8 @@ function Dashboard() {
             <p className="mb-0"><span className="text-success text-sm font-weight-bolder">+5% </span>than yesterday</p>
           </div>
         </div>
-      </div>
-    </div>
+      </div> 
+    </div> */}
     <div className="row mt-4">
       <div className="col-lg-4 col-md-6 mt-4 mb-4">
         <div className="card z-index-2 ">
@@ -481,6 +483,7 @@ function Dashboard() {
       </div>
     </div>
   </div>
+  </main>
   )
 }
 
