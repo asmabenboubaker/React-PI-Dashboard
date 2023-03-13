@@ -15,6 +15,12 @@ function ListUsers() {
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
+  const handleAddUser = () => {
+     
+      history.push('/addUser');
+      window.location.reload();
+  
+  };
   return (
         <main className="main-content  mt-0">
          <div className="container-fluid py-4">
@@ -152,6 +158,7 @@ function ListUsers() {
       </div>
     </div>
  
+    <button type="button" class="btn btn-outline-primary btn-sm mb-0" onClick={handleAddUser}>Add User</button>
 
   </div>
   </main>
