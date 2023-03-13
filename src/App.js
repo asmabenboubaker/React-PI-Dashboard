@@ -1,35 +1,41 @@
 //import logo from './logo.svg';
 import './App.css';
-
-import Sidebar from './Components/Pages/Sidebar'
-import Navbar from './Components/Pages/Navbar'
-import Footer from './Components/Pages/Footer'
-import Dashboard from './Components/Pages/Dashboard'
+import React, { useState, useEffect } from "react";
+import { Suspense } from 'react';
+import {  Route, Routes } from 'react-router-dom';
 
 
 
+
+const Sidebar = React.lazy(() => import('./Components/Pages/Sidebar'))
+const Footer = React.lazy(() => import('./Components/Pages/Footer'))
+const Navbar = React.lazy(()=>import('./Components/Pages/Navbar'))
+const Dashboard = React.lazy(()=>import('./Components/Pages/Dashboard'))
+const SignIn = React.lazy(()=>import('./Components/Admin/SignIn'))
+const ListUsers = React.lazy(()=>import('./Components/Admin/ListUsers'))
 
 
 
 function App() {
   return (
-    <div className="g-sidenav-show  bg-gray-200">
+<div className='MyApp'>
 
-      <Sidebar/>
+<Suspense fallback={<div>Loading...</div>}>
+<Navbar/>
+    <Sidebar/>
+     
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="*" element={<Dashboard />} />
+        
+          <Route path="/signin" element={<SignIn/>}/>
+          <Route path="/list" element={<ListUsers/>}/>
+         
 
-      <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-      <Navbar/>
+        </Routes>
+<Footer/>
+      </Suspense>
 
-      <div className="container-fluid py-4">
-
-      
-      <Dashboard/>
-
-
-      <Footer/>
-      </div>
-
-      </main>
     </div>
   );
 }
