@@ -14,6 +14,8 @@ const Dashboard = React.lazy(()=>import('./Components/Pages/Dashboard'))
 const SignIn = React.lazy(()=>import('./Components/Admin/SignIn'))
 const ListUsers = React.lazy(()=>import('./Components/Admin/ListUsers'))
 
+const AddUser = React.lazy(()=>import('./Components/Admin/AddUser'))
+const Update = React.lazy(()=>import('./Components/Admin/updateUser'))
 
 
 function App() {
@@ -30,8 +32,8 @@ function App() {
         
           <Route path="/signin" element={<SignIn/>}/>
           <Route path="/list" element={<ListUsers/>}/>
-         
-
+          <Route path="/addUser" element={<AddUser/>}/>
+          <Route path="/update/:id" element={<Update/>}/>
         </Routes>
 <Footer/>
       </Suspense>
