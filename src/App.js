@@ -13,6 +13,8 @@ const Navbar = React.lazy(()=>import('./Components/Pages/Navbar'))
 const Dashboard = React.lazy(()=>import('./Components/Pages/Dashboard'))
 const SignIn = React.lazy(()=>import('./Components/Admin/SignIn'))
 const ListUsers = React.lazy(()=>import('./Components/Admin/ListUsers'))
+const Profile = React.lazy(()=>import('./Components/Admin/profile'))
+
 
 
 
@@ -30,10 +32,13 @@ function App() {
         
           <Route path="/signin" element={<SignIn/>}/>
           <Route path="/list" element={<ListUsers/>}/>
+          <Route path="/profile" element={<Profile/>}/>
+
+
          
 
-        </Routes>
-<Footer/>
+            </Routes>
+        <Footer/>
       </Suspense>
 
     </div>
