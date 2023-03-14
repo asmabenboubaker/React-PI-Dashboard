@@ -347,6 +347,20 @@ function Profile() {
 
                                                 </div>
 
+
+
+                                                <div class="input">
+                                                    <input type="text" name="name" value={user.name} onChange={onValueChange} class="input-field" />
+                                                    <label class="input-label">Name</label>
+                                                    {formErrors.name && <p style={{ color: 'red', marginTop: '0.3rem' }}>{formErrors.name}</p>}
+
+
+
+                                                </div>
+
+
+
+
                                                 <div class="input">
                                                     <input type="email" name="email" value={user.email} onChange={onValueChange} class="input-field" />
                                                     <label class="input-label">Email address</label>
