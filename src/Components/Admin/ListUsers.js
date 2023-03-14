@@ -85,7 +85,7 @@ function ListUsers() {
                             <button className="badge badge-sm bg-gradient-success"  
                             
                             onClick={() => {
-                              if (window.confirm("Are you sure you want to change status this user?")) {
+                              if (window.confirm("Are you sure you want to ban this user?")) {
                               dispatch(banUseradmin(user)).then(data => { 
                                 history.push('/list');
                                 window.location.reload();
@@ -100,7 +100,7 @@ function ListUsers() {
                             <button className="badge badge-sm bg-gradient-secondary" 
                              
                             onClick={() => {
-                              if (window.confirm("Are you sure you want to change status this user?")) {
+                              if (window.confirm("Are you sure you want to unban this user?")) {
                               dispatch(banUseradmin(user)).then(data => { 
                                 history.push('/list');
                                 window.location.reload();
