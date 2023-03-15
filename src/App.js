@@ -23,6 +23,14 @@ const Update = React.lazy(() => import('./Components/Admin/updateUser'))
 
 
 function App() {
+  const [user, setUser] = useState(null)
+  useEffect(() => {
+    if (localStorage.getItem("user") != null)
+      setUser(localStorage.getItem("user"));
+    
+    console.log(user)
+  },[])
+
   return (
     <div className='MyApp'>
 
@@ -33,10 +41,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="*" element={<Dashboard />} />
+          {user == null &&<Route path="/signin" element={<SignIn />} />}
 
           <Route path="/signin" element={<SignIn />} />
           <Route path="/list" element={<ListUsers />} />
-          <Route path="/profile" element={<Profile />} />
+          {user &&(<Route path='/profile' element={<Profile />}></Route>)}
           <Route path="/addUser" element={<AddUser />} />
           <Route path="/update/:id" element={<Update />} />
 

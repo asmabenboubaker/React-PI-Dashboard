@@ -1,4 +1,69 @@
+
+import React, { useEffect, useState } from "react";
+
+import { useNavigate } from "react-router-dom";
+
+import { NavLink, Routes, Route } from "react-router-dom";
+
+import {login} from '../../service/api'
+
 function SignIn() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [user, setUser] = useState('');
+  const [redirectTo, setRedirectTo] = useState(null);
+  const [connected, setConnected] = useState({ username: "", email: "", name: "", image: "", google: false });
+
+  const navigate = useNavigate();
+  const [errors, setErrors] = useState({});
+
+  const [banned, setBanned] = useState(false);
+
+
+
+  const handleSubmit = (event) => {
+    
+    event.preventDefault();
+
+   
+      const user = {
+        'username': username,
+        'password': password
+      };
+
+      login(user).then((response) => {
+
+        if (JSON.parse(localStorage.getItem("user"))["active"] == true) {
+          if (JSON.parse(localStorage.getItem("user"))["role"] == "admin") {
+          navigate('/profile');
+
+
+          window.location.reload();
+
+          } 
+          else
+          {
+            alert("you are not admin")
+          }
+          // window.location.reload();
+        } else {
+          setBanned(true); 
+          localStorage.removeItem("user");
+        }
+
+      });
+    };
+
+
+        
+
+
+
+
+
+
+   
+      
     return (<><main className="main-content  mt-0">
     <div
       className="page-header align-items-start min-vh-100"
@@ -37,14 +102,21 @@ function SignIn() {
                 </div>
               </div>
               <div className="card-body">
-                <form role="form" className="text-start">
+                <form role="form" className="text-start" onSubmit={handleSubmit}>
                   <div className="input-group input-group-outline my-3">
-                    <label className="form-label">Username</label>
-                    <input type="text" className="form-control" />
+                    <input  type="text"
+                          value={username}
+                          placeholder="Enter Your Username..."
+                          onChange={(e) => setUsername(e.target.value)}
+                           className="form-control" />
                   </div>
                   <div className="input-group input-group-outline mb-3">
-                    <label className="form-label">Password</label>
-                    <input type="password" className="form-control" />
+                    <input  type="password"
+                          name="password"
+                          id="password"
+                          placeholder="Enter Password..."
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)} className="form-control" />
                   </div>
                   <div className="form-check form-switch d-flex align-items-center mb-3">
                     <input
@@ -61,7 +133,7 @@ function SignIn() {
                   </div>
                   <div className="text-center">
                     <button
-                      type="button"
+                      type="submit"
                       className="btn bg-gradient-primary w-100 my-4 mb-2"
                     >
                       Sign in

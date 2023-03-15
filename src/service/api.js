@@ -1,4 +1,5 @@
 import axios from "axios";
+const url6 = "http://localhost:3000/user";
 
 const url = "http://localhost:3000/user/all";
 const url2 = "http://localhost:3000/user/add";
@@ -12,6 +13,11 @@ export const getUsers = async () => {
   } catch (error) {
     console.error(error);
   }
+};
+export const login = async (user) => {
+  return  await axios.post(`${url6}/login`, user).then((response) => {
+    localStorage.setItem("user", JSON.stringify(response.data));
+  });
 };
 //add USer
 export const addUser = async (user) => {
