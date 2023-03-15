@@ -108,7 +108,7 @@ function Profile() {
 
         const userFromLocalStorage = JSON.parse(localStorage.getItem('user'));
 
-        console.log("iduserconnecte " + userFromLocalStorage._id)
+        // console.log("iduserconnecte " + userFromLocalStorage["_id"])
 
         setUser(userFromLocalStorage);
 
@@ -125,6 +125,7 @@ function Profile() {
 
         //////////importer image user 
         if (userFromLocalStorage.image) {
+
             axios.get(`http://localhost:3000/user/imageUser/${userFromLocalStorage._id}/image`, { responseType: 'blob' })
                 .then(res => {
                     const url = URL.createObjectURL(res.data);
@@ -135,6 +136,9 @@ function Profile() {
                 .catch(error => {
                     console.error(error);
                 });
+                
+
+
         }
 
 
@@ -457,6 +461,8 @@ function Profile() {
                                         <hr className="horizontal gray-light my-4" />
                                         <ul className="list-group">
                                             <li className="list-group-item border-0 ps-0 pt-0 text-sm"><strong className="text-dark">User Name:</strong> &nbsp; {user.username}</li>
+                                            <li className="list-group-item border-0 ps-0 pt-0 text-sm"><strong className="text-dark">Name:</strong> &nbsp; {user.name}</li>
+
                                             <li className="list-group-item border-0 ps-0 text-sm"><strong className="text-dark">Mobile:</strong> &nbsp; {user.phone}</li>
                                             <li className="list-group-item border-0 ps-0 text-sm"><strong className="text-dark">Email:</strong> &nbsp;  {user.email}</li>
                                             <li className="list-group-item border-0 ps-0 text-sm"><strong className="text-dark">Location:</strong> &nbsp; {user.location}</li>
