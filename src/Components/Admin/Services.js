@@ -13,7 +13,7 @@ export const login = async (user) => {
 export const editProfil = async (id, xx) => {
 
   //const accessToken = localStorage.getItem("access-token");
-  return await axios.put(`${url}/updateuser/${id}`,xx).then((response) => {
+  return await axios.put(`${url}/updateuseradmin/${id}`,xx).then((response) => {
       localStorage.setItem("user", JSON.stringify(response.data));
   }) ;
 
