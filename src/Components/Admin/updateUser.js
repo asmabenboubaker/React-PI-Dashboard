@@ -59,8 +59,8 @@ function Update() {
       }) 
     
     ).then(() => { 
-      history.push('/list');
-      window.location.reload();
+      // history.push('/list');
+      // window.location.reload();
     });
   }
 

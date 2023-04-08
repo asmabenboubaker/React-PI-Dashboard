@@ -1,4 +1,5 @@
 import axios from "axios";
+const url6 = "http://localhost:3000/user";
 
 const url = "http://localhost:3000/user/all";
 const url2 = "http://localhost:3000/user/add";
@@ -12,6 +13,11 @@ export const getUsers = async () => {
   } catch (error) {
     console.error(error);
   }
+};
+export const login = async (user) => {
+  return  await axios.post(`${url6}/login`, user).then((response) => {
+    localStorage.setItem("user", JSON.stringify(response.data));
+  });
 };
 //add USer
 export const addUser = async (user) => {
@@ -32,12 +38,14 @@ export const addUser = async (user) => {
   };
   export const banUser = async (id) => {
     try {
-      const response = await axios.post(`${url4}/${id}`);
+      const response = await axios.get(`${url4}/${id}`);
       return response.data;
     } catch (error) {
       console.error(error);
     }
   };
+
+  
   export const update = async (id,user) => {
     try {
       const response = await axios.put(`${url5}/${id}`,user);

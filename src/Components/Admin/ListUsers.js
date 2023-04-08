@@ -18,7 +18,7 @@ function ListUsers() {
   const handleAddUser = () => {
      
       history.push('/addUser');
-      window.location.reload();
+       window.location.reload();
   
   };
   return (
@@ -87,8 +87,8 @@ function ListUsers() {
                             onClick={() => {
                               if (window.confirm("Are you sure you want to ban this user?")) {
                               dispatch(banUseradmin(user)).then(data => { 
-                                history.push('/list');
-                                window.location.reload();
+                                 history.push('/list');
+                                 window.location.reload();
                                 
                             });
                           }
@@ -121,14 +121,14 @@ function ListUsers() {
                       </span>
                     </td>
                     <td className="align-middle">
-                    <a
+                    {/* <a
                       href={`/update/${user._id}`}
                       className="text-secondary font-weight-bold text-xs"
                       data-toggle="tooltip"
                       data-original-title="Edit user"
                     >
                       Edit
-                    </a>
+                    </a> */}
                       <a
                         href="javascript:;"
                         className="text-secondary font-weight-bold text-xs"
