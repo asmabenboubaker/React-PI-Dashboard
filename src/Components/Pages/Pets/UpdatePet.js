@@ -3,6 +3,7 @@ import { createBrowserHistory } from 'history';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function UpdatePet() {
    
@@ -14,7 +15,8 @@ function UpdatePet() {
   const [breed, setBreed] = useState("");
   const [Pets, setPets] = useState([]);
   const { id } = useParams();
-
+  const history = createBrowserHistory();
+  
   const handleImageChange = (event) => {
     const files = event.target.files;
     const urls = [];
@@ -70,8 +72,8 @@ function UpdatePet() {
 
       // Show success message or perform other UI updates
       toast.success('post updated successfully');
-      // history.push('/listlost');
-      // window.location.reload();
+      history.push('/listpet');
+      window.location.reload();
     } catch (error) {
       // Handle error and show error message
       toast.success('failed to update post');
@@ -120,7 +122,7 @@ function UpdatePet() {
 
 
         <div class="text-center">
-          <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
+          <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Update</button>
         </div>
       </form>
     </div>

@@ -29,6 +29,8 @@ const Listlost = React.lazy(() => import('./Components/Pages/Pets/LostList'))
 
 const LostPost = React.lazy(() => import('./Components/Pages/Pets/AddLost'))
 
+const UpdateLost = React.lazy(() => import('./Components/Pages/Pets/UpdateLost'))
+
 function App() {
   const [user, setUser] = useState(null)
   useEffect(() => {
@@ -62,6 +64,7 @@ function App() {
           <Route path="/listlost" element={<Listlost />} />
           <Route path="/addpost" element={<LostPost />} />
           <Route path="/updatePet/:id" element={<UpdatePet />} />
+          <Route path="/UpdateLost/:id" element={<UpdateLost />} />
         </Routes>
         <Footer />
       </Suspense>

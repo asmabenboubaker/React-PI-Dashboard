@@ -37,7 +37,6 @@ const handleDelete = async (id) => {
     //get lost and found pets by user
     useEffect(() => {
      
-        console.log(user);
         axios.post('http://127.0.0.1:3000/pet/getAllLostAndFounduser', { user })
           .then(response => {
             setLostPets(response.data);
@@ -80,15 +79,10 @@ const handleDelete = async (id) => {
         for (let i = 0; i < image.length; i++) {
             formData.append("image", image[i]);
         }
-
+        toast.success('Please wait ...');
         const url = 'http://127.0.0.1:3000/pet/addlost'
         axios.post(url, formData).then(data => {
-
-            // notification 
-            // if (user.location === location) {
-            //     toast.info(`A lost pet was reported in your area (${location})! If you see anything, please contact the owner.`);
-            //   }
-            toast.success('Lost pet added successfully');
+            
             history.push('/listlost');
             window.location.reload();
         }).catch(error => {
@@ -102,16 +96,18 @@ const handleDelete = async (id) => {
         <div className="container-fluid py-4">
    <div class="card card-plain">
    <div class="card-header">
-     <h4 class="font-weight-bolder">Update pet</h4>
+     <h4 class="font-weight-bolder">Add Post</h4>
      <p class="mb-0"></p>
    </div>
    <div class="card-body" >
       <form onSubmit={handleSubmit}>
                                    <div className="row">
                                        <div className="col-12">
-                                           <div className="form-inner">
-                                               <label>Type of operation</label>
-                                               <select id="type" name="type" value={type} onChange={handleTypeChange}>
+                                       <label class="form-label">Type of operation</label>
+                                       <div class="input-group input-group-outline mb-3">
+                                            
+                                              
+                                               <select id="type" name="type" value={type} onChange={handleTypeChange} class="form-control">
                                                    <option value="">Select a type</option>
                                                    <option value="lost">Lost</option>
                                                    <option value="found">Found</option>
@@ -119,21 +115,25 @@ const handleDelete = async (id) => {
                                            </div>
                                        </div>
 
+                                        
                                        <div className="col-12">
                                            <div className="form-inner">
-                                               <label>Images</label>
-
-                                               <input type="file" name="image" id="file-input"
+                                               <label class="form-label">Images</label>
+                                               <div class="input-group input-group-outline mb-3">
+                                            
+                                               <input type="file" name="image" id="file-input" class="form-control"
                                                    onChange={handleImageChange}
                                                />
 
-
+                                            </div>
                                            </div>
                                        </div>
                                        <div className="col-12">
                                            <div className="form-inner">
-                                               <label>Color </label>
-                                               <input type="text" name="color" placeholder="color pet "
+                                               <label class="form-label">Color </label>
+                                               <div class="input-group input-group-outline mb-3">
+                                            
+                                               <input type="text" name="color" placeholder="color pet " class="form-control"
 
                                                    value={color}
                                                    onChange={
@@ -143,11 +143,14 @@ const handleDelete = async (id) => {
                                                    }
                                                />
                                            </div>
+                                           </div>
                                        </div>
                                        <div className="col-12">
                                            <div className="form-inner">
-                                               <label>Street Address</label>
-                                               <select  name="location" value={location} onChange={handlelocationChange}>
+                                               <label class="form-label">Street Address</label>
+                                               <div class="input-group input-group-outline mb-3">
+                                            
+                                               <select  name="location" value={location} onChange={handlelocationChange} class="form-control">
                                                    <option value="">Town / City</option>
                                                    <option value="Tunis">Tunis</option>
                                                    <option value="Sfax">Sfax</option>
@@ -175,16 +178,17 @@ const handleDelete = async (id) => {
                                                    <option value="Gassrine">Gassrine</option>
                                                    <option value="Manouba">Manouba</option>
                                                </select>
-
+                                            </div>
                                            </div>
                                        </div>
 
 
                                        <div className="col-12">
                                            <div className="form-inner">
-                                               <label>Additional Information</label>
-                                               <div className="form-inner">
-                                                   <textarea name="description" placeholder="Order Notes (Optional)" rows="6"
+                                               <label class="form-label">Additional Information</label>
+                                               <div class="input-group input-group-outline mb-3">
+                                            
+                                                   <textarea name="description" placeholder="Order Notes (Optional)" rows="6" class="form-control"
 
                                                        value={description}
                                                        onChange={
@@ -194,13 +198,13 @@ const handleDelete = async (id) => {
                                                            }
                                                        }
                                                    ></textarea>
-                                               </div>                                            </div>
+                                               </div>  </div>
                                        </div>
 
 
                                    </div>
                                    <div className="place-order-btn">
-                                       <button type="submit" className="primary-btn1 lg-btn">Place Order</button>
+                                       <button type="submit"  class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Add Post</button>
                                    </div>
                                
      </form>
