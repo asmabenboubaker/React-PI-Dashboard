@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { format } from "date-fns";
 
 const ReportedComments = () => {
   const [reportedComments, setReportedComments] = useState([]);
@@ -40,8 +41,10 @@ const ReportedComments = () => {
       <tbody>
         {reportedComments.map(comment => (
           <tr key={comment._id}>
+              <td>{format(new Date(comment.createdAt), "dd/MM/yyyy,HH:MM")}</td>
             <td>{comment.username}</td>
             <td>{comment.text}</td>
+          
             <td><button onClick={() => handleDeleteComment(comment._id)}>Delete</button></td>
           </tr>
         ))}
