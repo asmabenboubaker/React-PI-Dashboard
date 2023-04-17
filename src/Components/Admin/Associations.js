@@ -29,37 +29,37 @@ function Associations() {
     }, []); 
 
 
-    const upgradeUser = (up) => {
-      console.log("USER : " + up.user);
-      var association = {
-        upgrade: up._id,
-        name: up.name,
-        user: up.user,
-        latitude: up.latitude,
-        longitude: up.longitude,
-        bio: up.bio,
-        file: up.logo,
-        action: 0,
-      };
+    // const upgradeUser = (up) => {
+    //   console.log("USER : " + up.user);
+    //   var association = {
+    //     upgrade: up._id,
+    //     name: up.name,
+    //     user: up.user,
+    //     latitude: up.latitude,
+    //     longitude: up.longitude,
+    //     bio: up.bio,
+    //     file: up.logo,
+    //     action: 0,
+    //   };
 
-      console.log("LOGOOOOOOOOOO : " + up.logo);
-      setDone(1);
-      addAssociation(association);
-      getAllUpgrades();
-        toast.success("Association added successfully");
-    };
+    //   console.log("LOGOOOOOOOOOO : " + up.logo);
+    //   setDone(1);
+    //   addAssociation(association);
+    //   getAllUpgrades();
+    //     toast.success("Association added successfully");
+    // };
 
-    const deleteUp = (up) => {
-      console.log("UPGRADE : " + up._id);
-      try {
-        axios.delete("http://localhost:3000/user/deleteUpgrade/" + up._id);
-      } catch (error) {
-        console.log(error);
-      }
+    // const deleteUp = (up) => {
+    //   console.log("UPGRADE : " + up._id);
+    //   try {
+    //     axios.delete("http://localhost:3000/user/deleteUpgrade/" + up._id);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
 
-        getAllUpgrades();
-      toast.warning("Upgrade declined successfully");  
-    };
+    //     getAllUpgrades();
+    //   toast.warning("Upgrade declined successfully");  
+    // };
 
 
     return (
@@ -134,7 +134,29 @@ function Associations() {
                                   <button
                                     className="buttons"
                                     style={{ backgroundColor: "#1C9005" }}
-                                    onClick={upgradeUser(upgrade)}
+                                              onClick={() => {
+                                        var up = upgrade; 
+                                        var association = {
+                                          upgrade: up._id,
+                                          name: up.name,
+                                          user: up.user,
+                                          latitude: up.latitude,
+                                          longitude: up.longitude,
+                                          bio: up.bio,
+                                          file: up.logo,
+                                          action: 0,
+                                        };
+
+                                        console.log(
+                                          "LOGOOOOOOOOOO : " + up.logo
+                                        );
+                                        setDone(1);
+                                        addAssociation(association);
+                                        getAllUpgrades();
+                                        toast.success(
+                                          "Association added successfully"
+                                        );
+                                    }}
                                   >
                                     <i className="fas fa-check"></i>
                                   </button>
@@ -142,7 +164,20 @@ function Associations() {
                                   <button
                                     className="buttons"
                                     style={{ backgroundColor: "#F52B2B" }}
-                                    onClick={deleteUp(upgrade)}
+                                              onClick={() => {
+                                                  var up = upgrade; 
+                                                  try {
+                                                      axios.delete("http://localhost:3000/user/deleteUpgrade/" + up._id).then((response) => {
+                                                          getAllUpgrades();
+                                                          toast.warning("Upgrade declined successfully");
+                                                        });
+                                                  } catch (error) {
+                                                      console.log(error);
+                                                  }
+
+                                                  getAllUpgrades();
+                                                  toast.warning("Upgrade declined successfully");
+                                              }}
                                   >
                                     <i className="fas fa-times"></i>
                                   </button>
