@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import './button.css'; 
-import {  addAssociation  } from "../api";
+import {  addAssociation  } from "./api";
+import { toast } from "react-toastify"; 
 
 function Associations() {
   const [done, setDone] = useState(0);
@@ -28,7 +29,7 @@ function Associations() {
     }, []); 
 
 
-    const upgradeUser = () => {
+    const upgradeUser = (up) => {
       console.log("USER : " + up.user);
       var association = {
         upgrade: up._id,
@@ -45,9 +46,10 @@ function Associations() {
       setDone(1);
       addAssociation(association);
       getAllUpgrades();
+        toast.success("Association added successfully");
     };
 
-    const deleteUp = () => {
+    const deleteUp = (up) => {
       console.log("UPGRADE : " + up._id);
       try {
         axios.delete("http://localhost:3000/user/deleteUpgrade/" + up._id);
@@ -55,7 +57,8 @@ function Associations() {
         console.log(error);
       }
 
-      getAllUpgrades();
+        getAllUpgrades();
+      toast.warning("Upgrade declined successfully");  
     };
 
 
@@ -131,6 +134,7 @@ function Associations() {
                                   <button
                                     className="buttons"
                                     style={{ backgroundColor: "#1C9005" }}
+                                    onClick={upgradeUser(upgrade)}
                                   >
                                     <i className="fas fa-check"></i>
                                   </button>
@@ -138,6 +142,7 @@ function Associations() {
                                   <button
                                     className="buttons"
                                     style={{ backgroundColor: "#F52B2B" }}
+                                    onClick={deleteUp(upgrade)}
                                   >
                                     <i className="fas fa-times"></i>
                                   </button>
