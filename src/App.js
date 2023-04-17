@@ -19,7 +19,12 @@ const Profile = React.lazy(() => import('./Components/Admin/profile'))
 const AddUser = React.lazy(() => import('./Components/Admin/AddUser'))
 const Update = React.lazy(() => import('./Components/Admin/updateUser'))
 
+const ListPublications = React.lazy(() => import('./Components/Blog/ListPublications'))
 
+
+const DetailsPublication = React.lazy(() => import('./Components/Blog/DetailsPub'))
+
+const StatistiquesPub= React.lazy(() => import('./Components/Blog/StatistiquesPub'))
 
 
 function App() {
@@ -47,11 +52,25 @@ function App() {
           <Route path="/list" element={<ListUsers />} />
           {user &&(<Route path='/profile' element={<Profile />}></Route>)}
           <Route path="/addUser" element={<AddUser />} />
+
+
           <Route path="/update/:id" element={<Update />} />
 
+          <Route path="/ListPublications" element={<ListPublications />} />
+
+          <Route path="/DetailsPublication/:idpub" element={<DetailsPublication />} />
 
 
+          <Route path="/StatistiquesPub/:idpub" element={<StatistiquesPub />} />
+
+
+
+
+          
         </Routes>
+
+
+
         <Footer />
       </Suspense>
 

@@ -68,6 +68,7 @@ function Sidebar() {
             <li className="nav-item mt-3">
               <h6 className="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
             </li>
+
             <li className="nav-item">
             <NavLink to="/profile" className="nav-link text-white ">
                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -77,6 +78,23 @@ function Sidebar() {
                 </NavLink>
 
             </li>
+
+
+            <li className="nav-item">
+            <NavLink to="/ListPublications" className="nav-link text-white ">
+                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i className="material-icons opacity-10">person</i>
+                </div>
+                <span className="nav-link-text ms-1">List Publications</span>
+                </NavLink>
+
+            </li>
+
+
+
+         
+
+            
 
             <li className="nav-item">
 
