@@ -18,6 +18,8 @@ const Profile = React.lazy(() => import('./Components/Admin/profile'))
 
 const AddUser = React.lazy(() => import('./Components/Admin/AddUser'))
 const Update = React.lazy(() => import('./Components/Admin/updateUser'))
+const Associations = React.lazy(() => import('./Components/Admin/Associations'))
+
 
 
 
@@ -32,8 +34,7 @@ function App() {
   },[])
 
   return (
-    <div className='MyApp'>
-
+    <div className="MyApp">
       <Suspense fallback={<div>Loading...</div>}>
         <Navbar />
         <Sidebar />
@@ -41,20 +42,19 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="*" element={<Dashboard />} />
-          {user == null &&<Route path="/signin" element={<SignIn />} />}
+          {user == null && <Route path="/signin" element={<SignIn />} />}
 
           <Route path="/signin" element={<SignIn />} />
           <Route path="/list" element={<ListUsers />} />
-          {user &&(<Route path='/profile' element={<Profile />}></Route>)}
+
+          <Route path="/associations" element={<Associations />} />
+
+          {user && <Route path="/profile" element={<Profile />}></Route>}
           <Route path="/addUser" element={<AddUser />} />
           <Route path="/update/:id" element={<Update />} />
-
-
-
         </Routes>
         <Footer />
       </Suspense>
-
     </div>
   );
 }
