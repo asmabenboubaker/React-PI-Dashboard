@@ -6511,6 +6511,12 @@ textarea.form-control-lg {
 .ms-4 {
   margin-left: 1.5rem !important; }
 
+
+.ms-conv {
+    margin-left: 3.3rem !important; }
+
+
+
 .ms-5 {
   margin-left: 3rem !important; }
 
@@ -12552,7 +12558,7 @@ textarea.form-control-lg {
   text-transform: uppercase; }
 
 .btn {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   letter-spacing: 0;
   text-transform: uppercase;
   background-size: 150%;
