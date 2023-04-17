@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import './button.css'; 
+import {  addAssociation  } from "../api";
 
 function Associations() {
+  const [done, setDone] = useState(0);
 
     const [upgrades, setUpgrades] = useState([]);
     const [up, setUp] = useState({}); 
@@ -24,6 +26,38 @@ function Associations() {
     useEffect(() => {
       getAllUpgrades();
     }, []); 
+
+
+    const upgradeUser = () => {
+      console.log("USER : " + up.user);
+      var association = {
+        upgrade: up._id,
+        name: up.name,
+        user: up.user,
+        latitude: up.latitude,
+        longitude: up.longitude,
+        bio: up.bio,
+        file: up.logo,
+        action: 0,
+      };
+
+      console.log("LOGOOOOOOOOOO : " + up.logo);
+      setDone(1);
+      addAssociation(association);
+      getAllUpgrades();
+    };
+
+    const deleteUp = () => {
+      console.log("UPGRADE : " + up._id);
+      try {
+        axios.delete("http://localhost:3000/user/deleteUpgrade/" + up._id);
+      } catch (error) {
+        console.log(error);
+      }
+
+      getAllUpgrades();
+    };
+
 
     return (
       <>
@@ -51,13 +85,13 @@ function Associations() {
                               Type
                             </th>
                             <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                              Action
+                              Logo
                             </th>
                             <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                               Verification File
                             </th>
                             <th className="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                              Logo
+                              ACtion
                             </th>
                           </tr>
                         </thead>
@@ -96,7 +130,7 @@ function Associations() {
                                 <span className="text-secondary text-xs font-weight-bold">
                                   <button
                                     className="buttons"
-                                    style={{ backgroundColor: "#35E113" }}
+                                    style={{ backgroundColor: "#1C9005" }}
                                   >
                                     <i className="fas fa-check"></i>
                                   </button>
