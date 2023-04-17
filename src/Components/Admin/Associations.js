@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import './button.css'; 
 
 function Associations() {
 
@@ -71,18 +72,7 @@ function Associations() {
                                   {upgrade.type}
                                 </p>
                               </td>
-                              <td className="align-middle text-center">
-                                <span className="text-secondary text-xs font-weight-bold">
-                                  <button>
-                                    <i className="fas fa-check"></i>
-                                  </button>
-                                          
-                                    <button>
-                                        <i className="fas fa-times"></i>
-                                    </button>
 
-                                </span>
-                              </td>
                               <td className="align-middle text-center">
                                 <div>
                                   <img
@@ -100,6 +90,24 @@ function Associations() {
                                     alt="user1"
                                   />
                                 </div>
+                              </td>
+
+                              <td className="align-middle text-center">
+                                <span className="text-secondary text-xs font-weight-bold">
+                                  <button
+                                    className="buttons"
+                                    style={{ backgroundColor: "#35E113" }}
+                                  >
+                                    <i className="fas fa-check"></i>
+                                  </button>
+                                  &nbsp; &nbsp;
+                                  <button
+                                    className="buttons"
+                                    style={{ backgroundColor: "#F52B2B" }}
+                                  >
+                                    <i className="fas fa-times"></i>
+                                  </button>
+                                </span>
                               </td>
                             </tr>
                           ))}
