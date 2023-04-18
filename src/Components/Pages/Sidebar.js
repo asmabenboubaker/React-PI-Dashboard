@@ -33,8 +33,7 @@ function Sidebar() {
                 <span className="nav-link-text ms-1">Users List</span>
               </NavLink>
             </li>
-<<<<<<< Updated upstream
-=======
+
             <li className="nav-item">
               <NavLink to="/listCoupon" className="nav-link text-white " >
                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -43,7 +42,24 @@ function Sidebar() {
                 <span className="nav-link-text ms-1">Coupon list</span>
               </NavLink>
             </li>
->>>>>>> Stashed changes
+
+            <li className="nav-item">
+              <NavLink to="/listlost" className="nav-link text-white " >
+                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i className="material-icons opacity-10">table_view</i>
+                </div>
+                <span className="nav-link-text ms-1">Post List</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/listpet" className="nav-link text-white " >
+                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i className="material-icons opacity-10">table_view</i>
+                </div>
+                <span className="nav-link-text ms-1">Pet List</span>
+              </NavLink>
+            </li>
+
             {/* <li className="nav-item">
           <a className="nav-link text-white " href="./pages/billing.html">
             <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -79,6 +95,7 @@ function Sidebar() {
             <li className="nav-item mt-3">
               <h6 className="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
             </li>
+
             <li className="nav-item">
             <NavLink to="/profile" className="nav-link text-white ">
                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -88,9 +105,7 @@ function Sidebar() {
                 </NavLink>
 
             </li>
-<<<<<<< Updated upstream
 
-=======
             <li className="nav-item">
             <NavLink to="/products" className="nav-link text-white ">
                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -100,7 +115,23 @@ function Sidebar() {
                 </NavLink>
 
             </li>
->>>>>>> Stashed changes
+
+            <li className="nav-item">
+            <NavLink to="/ListPublications" className="nav-link text-white ">
+                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i className="material-icons opacity-10">person</i>
+                </div>
+                <span className="nav-link-text ms-1">List Publications</span>
+                </NavLink>
+
+            </li>
+
+
+
+         
+
+            
+
             <li className="nav-item">
 
               <NavLink to="/signin" className="nav-link text-white ">

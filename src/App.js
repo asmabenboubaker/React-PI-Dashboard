@@ -21,16 +21,32 @@ const Profile = React.lazy(() => import('./Components/Admin/profile'))
 
 const AddUser = React.lazy(() => import('./Components/Admin/AddUser'))
 const Update = React.lazy(() => import('./Components/Admin/updateUser'))
-<<<<<<< Updated upstream
+
+
+const ListPublications = React.lazy(() => import('./Components/Blog/ListPublications'))
 
 
 
-=======
 const Listecoupon=React.lazy(()=>import('./Components/Admin/Listcoupon'));
 
 
 
->>>>>>> Stashed changes
+
+const DetailsPublication = React.lazy(() => import('./Components/Blog/DetailsPub'))
+
+const StatistiquesPub= React.lazy(() => import('./Components/Blog/StatistiquesPub'))
+// pett ======================
+
+const ListPet = React.lazy(() => import('./Components/Pages/Pets/ListPets'))
+
+const UpdatePet = React.lazy(() => import('./Components/Pages/Pets/UpdatePet'))
+
+const Listlost = React.lazy(() => import('./Components/Pages/Pets/LostList'))
+
+const LostPost = React.lazy(() => import('./Components/Pages/Pets/AddLost'))
+
+const UpdateLost = React.lazy(() => import('./Components/Pages/Pets/UpdateLost'))
+
 
 function App() {
   const [user, setUser] = useState(null)
@@ -57,20 +73,35 @@ function App() {
           <Route path="/list" element={<ListUsers />} />
           {user &&(<Route path='/profile' element={<Profile />}></Route>)}
           <Route path="/addUser" element={<AddUser />} />
+
+
           <Route path="/update/:id" element={<Update />} />
-<<<<<<< Updated upstream
 
+          <Route path="/ListPublications" element={<ListPublications />} />
 
-=======
+          <Route path="/DetailsPublication/:idpub" element={<DetailsPublication />} />
+
           <Route path="/products" element={<Products />} />
           <Route path="/products/new" element={<NewProduct />} />
           <Route path="/products/update/:id" element={<UpdateProduct />} />
           <Route path="/listCoupon" element={<Listecoupon/>} />
 
-          
->>>>>>> Stashed changes
 
+
+          <Route path="/StatistiquesPub/:idpub" element={<StatistiquesPub />} />
+
+          <Route path="/listpet" element={<ListPet />} />
+          <Route path="/listlost" element={<Listlost />} />
+          <Route path="/addpost" element={<LostPost />} />
+          <Route path="/updatePet/:id" element={<UpdatePet />} />
+          <Route path="/UpdateLost/:id" element={<UpdateLost />} />
+
+
+          
         </Routes>
+
+
+
         <Footer />
       </Suspense>
 
