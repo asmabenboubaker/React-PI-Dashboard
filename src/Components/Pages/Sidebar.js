@@ -51,7 +51,14 @@ function Sidebar() {
                 <span className="nav-link-text ms-1">Users List</span>
               </NavLink>
             </li>
-
+            <li className="nav-item">
+          <NavLink to="/reportedComments" className="nav-link text-white " >
+            <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i className="material-icons opacity-10">table_view</i>
+            </div>
+            <span className="nav-link-text ms-1">Reported comments</span>
+          </NavLink>
+        </li>
 
 
 

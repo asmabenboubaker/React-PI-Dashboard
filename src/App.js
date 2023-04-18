@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import Products from "./Components/Pages/Products/Products";
 import NewProduct from "./Components/Pages/Products/New";
 import UpdateProduct from "./Components/Pages/Products/Update";
+import ReportedComments from './Components/Admin/ReportedComments';
 
 
 
@@ -89,6 +90,7 @@ function App() {
           <Route path="/products/new" element={<NewProduct />} />
           <Route path="/products/update/:id" element={<UpdateProduct />} />
           <Route path="/listCoupon" element={<Listecoupon/>} />
+          <Route path="/reportedComments" element={<ReportedComments/>}/>
 
 
 
