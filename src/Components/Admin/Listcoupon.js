@@ -2,10 +2,18 @@ import { useState } from "react";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import { useEffect } from "react";
+import { createBrowserHistory } from 'history';
+
 export default function  Listecoupon() {
     const [coupon, setCoupon] = useState({code:"", valeur:0});
     const [listCoupons,SetListeCoupon]=useState(null);
     const [openAddFrom,setopenAddFrom]=useState(false);
+    const history = createBrowserHistory();
+   
+
+    
+
+
     useEffect(()=>{
         fetchListeCoupons();
 
@@ -29,10 +37,13 @@ export default function  Listecoupon() {
             axios.post('http://localhost:3000/coupon/addCoupon', { 
               code:coupon.code,
               valeur:coupon.valeur
+              
              })
             .then((data) => {
-              alert("Coupon added")
               setCoupon({code:"", valeur:0});
+            
+              history.push('/listCoupon');
+              window.location.reload();
             }).catch(err=>console.log(err));
         
            
@@ -139,8 +150,7 @@ export default function  Listecoupon() {
    </div>
    
  </form>
- <button type="button" class="btn btn-outline-primary btn-sm mb-0 my-2 col-12" onClick={()=>{setopenAddFrom(false)}}>Show 
-  Coupons</button>
+
 
 </div>
 
