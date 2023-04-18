@@ -1,10 +1,10 @@
 import { useState ,useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addUser, deleteUser, updateUsername ,fetchUsers,banUseradmin} from "../../features/Users";
+import {addUser, deleteUser, updateUsername, fetchUsers, banUseradmin, selectUsers} from "../../features/Users";
 import { createBrowserHistory } from 'history';
 function ListUsers() {
   const dispatch = useDispatch();
-  const userList = useSelector((state) => state.users.value);
+  const userList = useSelector(selectUsers);
 
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -96,6 +96,11 @@ function ListUsers() {
                             >
                               Active 
                             </button>
+
+
+
+
+
                           ) : (
                             <button className="badge badge-sm bg-gradient-secondary" 
                              

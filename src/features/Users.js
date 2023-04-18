@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getUsers, addUser as addUserService, deleteUser as deleteUserService ,banUser,update} from "../service/api";
+import {createProduct} from "../redux/slices/ProductSlice";
 
 
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
@@ -26,10 +27,13 @@ export const banUseradmin = createAsyncThunk("users/ban", async (user) => {
   const response = await banUser(user._id);
   return response.data;
 });
-
-export const userSlice = createSlice({
+let initialState = {
+  value: [],
+  user:null
+};
+export const UserSlice = createSlice({
   name: "users",
-  initialState: { value: [] },
+  initialState,
   reducers: {
    
     updateUsername: (state, action) => {
@@ -47,5 +51,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const {  updateUsername } = userSlice.actions;
-export default userSlice.reducer;
+export const {  updateUsername } = UserSlice.actions;
+export const selectUsers = (state) => state.usersSlice.value;
+export default UserSlice.reducer;

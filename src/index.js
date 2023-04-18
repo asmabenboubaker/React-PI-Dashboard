@@ -8,11 +8,14 @@ import { Provider } from "react-redux";
 import usersReducer from "./features/Users";
 import { configureStore } from "@reduxjs/toolkit";
 
-const store = configureStore({
+/*const store = configureStore({
   reducer: {
     users: usersReducer,
   },
-});
+});*/
+import store from "./redux/store";
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
