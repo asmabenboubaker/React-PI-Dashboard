@@ -113,8 +113,8 @@ function Associations() {
                               <td className="align-middle text-center">
                                 <div>
                                   <a
-                                    download="VerificationFile"
-                                    href={urlUp + upgrade.file}
+                                    download={urlUp+upgrade.file}
+                                    href={urlUp+upgrade.file}
                                     title="ImageName"
                                   >
                                     <img
@@ -211,10 +211,7 @@ function Associations() {
                 </div>
               </div>
             </div>
-
-            <button type="button" class="btn btn-outline-primary btn-sm mb-0">
-              Add User
-            </button>
+ 
           </div>
         </main>
       </>
