@@ -3,6 +3,9 @@ import './App.css';
 import React, { useState, useEffect } from "react";
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Products from "./Components/Pages/Products/Products";
+import NewProduct from "./Components/Pages/Products/New";
+import UpdateProduct from "./Components/Pages/Products/Update";
 
 
 
@@ -19,7 +22,14 @@ const Profile = React.lazy(() => import('./Components/Admin/profile'))
 const AddUser = React.lazy(() => import('./Components/Admin/AddUser'))
 const Update = React.lazy(() => import('./Components/Admin/updateUser'))
 
+
 const ListPublications = React.lazy(() => import('./Components/Blog/ListPublications'))
+
+
+
+const Listecoupon=React.lazy(()=>import('./Components/Admin/Listcoupon'));
+
+
 
 
 const DetailsPublication = React.lazy(() => import('./Components/Blog/DetailsPub'))
@@ -70,6 +80,12 @@ function App() {
           <Route path="/ListPublications" element={<ListPublications />} />
 
           <Route path="/DetailsPublication/:idpub" element={<DetailsPublication />} />
+
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/new" element={<NewProduct />} />
+          <Route path="/products/update/:id" element={<UpdateProduct />} />
+          <Route path="/listCoupon" element={<Listecoupon/>} />
+
 
 
           <Route path="/StatistiquesPub/:idpub" element={<StatistiquesPub />} />
