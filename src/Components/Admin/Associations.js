@@ -26,7 +26,7 @@ function Associations() {
 
     useEffect(() => {
       getAllUpgrades();
-    }, []); 
+    }, [upgrades]); 
 
 
     // const upgradeUser = (up) => {
