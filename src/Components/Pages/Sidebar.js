@@ -33,6 +33,17 @@ function Sidebar() {
                 <span className="nav-link-text ms-1">Users List</span>
               </NavLink>
             </li>
+<<<<<<< Updated upstream
+=======
+            <li className="nav-item">
+              <NavLink to="/listCoupon" className="nav-link text-white " >
+                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i className="material-icons opacity-10">table_view</i>
+                </div>
+                <span className="nav-link-text ms-1">Coupon list</span>
+              </NavLink>
+            </li>
+>>>>>>> Stashed changes
             {/* <li className="nav-item">
           <a className="nav-link text-white " href="./pages/billing.html">
             <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -77,7 +88,19 @@ function Sidebar() {
                 </NavLink>
 
             </li>
+<<<<<<< Updated upstream
 
+=======
+            <li className="nav-item">
+            <NavLink to="/products" className="nav-link text-white ">
+                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i className="material-icons opacity-10">view_in_ar</i>
+                </div>
+                <span className="nav-link-text ms-1">Product</span>
+                </NavLink>
+
+            </li>
+>>>>>>> Stashed changes
             <li className="nav-item">
 
               <NavLink to="/signin" className="nav-link text-white ">

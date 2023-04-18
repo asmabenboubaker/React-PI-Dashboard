@@ -3,6 +3,9 @@ import './App.css';
 import React, { useState, useEffect } from "react";
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Products from "./Components/Pages/Products/Products";
+import NewProduct from "./Components/Pages/Products/New";
+import UpdateProduct from "./Components/Pages/Products/Update";
 
 
 
@@ -18,9 +21,16 @@ const Profile = React.lazy(() => import('./Components/Admin/profile'))
 
 const AddUser = React.lazy(() => import('./Components/Admin/AddUser'))
 const Update = React.lazy(() => import('./Components/Admin/updateUser'))
+<<<<<<< Updated upstream
 
 
 
+=======
+const Listecoupon=React.lazy(()=>import('./Components/Admin/Listcoupon'));
+
+
+
+>>>>>>> Stashed changes
 
 function App() {
   const [user, setUser] = useState(null)
@@ -48,8 +58,17 @@ function App() {
           {user &&(<Route path='/profile' element={<Profile />}></Route>)}
           <Route path="/addUser" element={<AddUser />} />
           <Route path="/update/:id" element={<Update />} />
+<<<<<<< Updated upstream
 
 
+=======
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/new" element={<NewProduct />} />
+          <Route path="/products/update/:id" element={<UpdateProduct />} />
+          <Route path="/listCoupon" element={<Listecoupon/>} />
+
+          
+>>>>>>> Stashed changes
 
         </Routes>
         <Footer />
