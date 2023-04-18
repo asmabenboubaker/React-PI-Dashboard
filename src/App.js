@@ -3,6 +3,7 @@ import './App.css';
 import React, { useState, useEffect } from "react";
 import { Suspense } from 'react';
 import {  Route, Routes } from 'react-router-dom';
+import ReportedComments from './Components/Admin/ReportedComments';
 
 
 
@@ -30,6 +31,7 @@ function App() {
         
           <Route path="/signin" element={<SignIn/>}/>
           <Route path="/list" element={<ListUsers/>}/>
+          <Route path="/reportedComments" element={<ReportedComments/>}/>
          
 
         </Routes>
