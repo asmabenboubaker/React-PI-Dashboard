@@ -33,6 +33,22 @@ function Sidebar() {
                 <span className="nav-link-text ms-1">Users List</span>
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink to="/listlost" className="nav-link text-white " >
+                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i className="material-icons opacity-10">table_view</i>
+                </div>
+                <span className="nav-link-text ms-1">Post List</span>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/listpet" className="nav-link text-white " >
+                <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i className="material-icons opacity-10">table_view</i>
+                </div>
+                <span className="nav-link-text ms-1">Pet List</span>
+              </NavLink>
+            </li>
             {/* <li className="nav-item">
           <a className="nav-link text-white " href="./pages/billing.html">
             <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">

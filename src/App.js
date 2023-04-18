@@ -25,6 +25,17 @@ const ListPublications = React.lazy(() => import('./Components/Blog/ListPublicat
 const DetailsPublication = React.lazy(() => import('./Components/Blog/DetailsPub'))
 
 const StatistiquesPub= React.lazy(() => import('./Components/Blog/StatistiquesPub'))
+// pett ======================
+
+const ListPet = React.lazy(() => import('./Components/Pages/Pets/ListPets'))
+
+const UpdatePet = React.lazy(() => import('./Components/Pages/Pets/UpdatePet'))
+
+const Listlost = React.lazy(() => import('./Components/Pages/Pets/LostList'))
+
+const LostPost = React.lazy(() => import('./Components/Pages/Pets/AddLost'))
+
+const UpdateLost = React.lazy(() => import('./Components/Pages/Pets/UpdateLost'))
 
 
 function App() {
@@ -63,7 +74,11 @@ function App() {
 
           <Route path="/StatistiquesPub/:idpub" element={<StatistiquesPub />} />
 
-
+          <Route path="/listpet" element={<ListPet />} />
+          <Route path="/listlost" element={<Listlost />} />
+          <Route path="/addpost" element={<LostPost />} />
+          <Route path="/updatePet/:id" element={<UpdatePet />} />
+          <Route path="/UpdateLost/:id" element={<UpdateLost />} />
 
 
           
