@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import Products from "./Components/Pages/Products/Products";
 import NewProduct from "./Components/Pages/Products/New";
 import UpdateProduct from "./Components/Pages/Products/Update";
+import ReportedComments from './Components/Admin/ReportedComments';
 
 
 
@@ -21,6 +22,8 @@ const Profile = React.lazy(() => import('./Components/Admin/profile'))
 
 const AddUser = React.lazy(() => import('./Components/Admin/AddUser'))
 const Update = React.lazy(() => import('./Components/Admin/updateUser'))
+const Associations = React.lazy(() => import('./Components/Admin/Associations'))
+
 
 
 const ListPublications = React.lazy(() => import('./Components/Blog/ListPublications'))
@@ -58,8 +61,7 @@ function App() {
   },[])
 
   return (
-    <div className='MyApp'>
-
+    <div className="MyApp">
       <Suspense fallback={<div>Loading...</div>}>
         <Navbar />
         <Sidebar />
@@ -67,11 +69,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="*" element={<Dashboard />} />
-          {user == null &&<Route path="/signin" element={<SignIn />} />}
+          {user == null && <Route path="/signin" element={<SignIn />} />}
 
           <Route path="/signin" element={<SignIn />} />
           <Route path="/list" element={<ListUsers />} />
-          {user &&(<Route path='/profile' element={<Profile />}></Route>)}
+
+          <Route path="/associations" element={<Associations />} />
+
+          {user && <Route path="/profile" element={<Profile />}></Route>}
           <Route path="/addUser" element={<AddUser />} />
 
 
@@ -85,6 +90,7 @@ function App() {
           <Route path="/products/new" element={<NewProduct />} />
           <Route path="/products/update/:id" element={<UpdateProduct />} />
           <Route path="/listCoupon" element={<Listecoupon/>} />
+          <Route path="/reportedComments" element={<ReportedComments/>}/>
 
 
 
@@ -104,7 +110,6 @@ function App() {
 
         <Footer />
       </Suspense>
-
     </div>
   );
 }
