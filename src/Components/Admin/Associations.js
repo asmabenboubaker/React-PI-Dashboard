@@ -112,20 +112,32 @@ function Associations() {
 
                               <td className="align-middle text-center">
                                 <div>
-                                  <img
-                                    src={urlUp + upgrade.file}
-                                    style={{ width: "100px" }}
-                                    alt="user1"
-                                  />
+                                  <a
+                                    download="VerificationFile"
+                                    href={urlUp + upgrade.file}
+                                    title="ImageName"
+                                  >
+                                    <img
+                                      src={urlUp + upgrade.file}
+                                      style={{ width: "100px" }}
+                                      alt="user1"
+                                    />
+                                  </a>
                                 </div>
                               </td>
                               <td className="align-middle text-center">
                                 <div>
-                                  <img
-                                    src={urlAss + upgrade.logo}
-                                    style={{ width: "100px" }}
-                                    alt="user1"
-                                  />
+                                  <a
+                                    download="Logo"
+                                    href={urlAss + upgrade.logo}
+                                    title="ImageName"
+                                  >
+                                    <img
+                                      src={urlAss + upgrade.logo}
+                                      style={{ width: "100px" }}
+                                      alt="user1"
+                                    />
+                                  </a>
                                 </div>
                               </td>
 
@@ -134,28 +146,26 @@ function Associations() {
                                   <button
                                     className="buttons"
                                     style={{ backgroundColor: "#1C9005" }}
-                                              onClick={() => {
-                                        var up = upgrade; 
-                                        var association = {
-                                          upgrade: up._id,
-                                          name: up.name,
-                                          user: up.user,
-                                          latitude: up.latitude,
-                                          longitude: up.longitude,
-                                          bio: up.bio,
-                                          file: up.logo,
-                                          action: 0,
-                                        };
+                                    onClick={() => {
+                                      var up = upgrade;
+                                      var association = {
+                                        upgrade: up._id,
+                                        name: up.name,
+                                        user: up.user,
+                                        latitude: up.latitude,
+                                        longitude: up.longitude,
+                                        bio: up.bio,
+                                        file: up.logo,
+                                        action: 0,
+                                      };
 
-                                        console.log(
-                                          "LOGOOOOOOOOOO : " + up.logo
-                                        );
-                                        setDone(1);
-                                        addAssociation(association);
-                                        getAllUpgrades();
-                                        toast.success(
-                                          "Association added successfully"
-                                        );
+                                      console.log("LOGOOOOOOOOOO : " + up.logo);
+                                      setDone(1);
+                                      addAssociation(association);
+                                      getAllUpgrades();
+                                      toast.success(
+                                        "Association added successfully"
+                                      );
                                     }}
                                   >
                                     <i className="fas fa-check"></i>
@@ -164,20 +174,29 @@ function Associations() {
                                   <button
                                     className="buttons"
                                     style={{ backgroundColor: "#F52B2B" }}
-                                              onClick={() => {
-                                                  var up = upgrade; 
-                                                  try {
-                                                      axios.delete("http://localhost:3000/user/deleteUpgrade/" + up._id).then((response) => {
-                                                          getAllUpgrades();
-                                                          toast.warning("Upgrade declined successfully");
-                                                        });
-                                                  } catch (error) {
-                                                      console.log(error);
-                                                  }
+                                    onClick={() => {
+                                      var up = upgrade;
+                                      try {
+                                        axios
+                                          .delete(
+                                            "http://localhost:3000/user/deleteUpgrade/" +
+                                              up._id
+                                          )
+                                          .then((response) => {
+                                            getAllUpgrades();
+                                            toast.warning(
+                                              "Upgrade declined successfully"
+                                            );
+                                          });
+                                      } catch (error) {
+                                        console.log(error);
+                                      }
 
-                                                  getAllUpgrades();
-                                                  toast.warning("Upgrade declined successfully");
-                                              }}
+                                      getAllUpgrades();
+                                      toast.warning(
+                                        "Upgrade declined successfully"
+                                      );
+                                    }}
                                   >
                                     <i className="fas fa-times"></i>
                                   </button>
