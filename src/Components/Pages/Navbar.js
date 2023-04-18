@@ -1,6 +1,21 @@
 import React from 'react'
+import { NavLink,Routes ,Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import  { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const [user, setUser] = useState(localStorage.getItem("user"));
+  const navigate = useNavigate();
+
+useEffect(() => {
+  setUser(localStorage.getItem("user"));
+}, [user]);
+const logout = () => {
+  localStorage.removeItem("user");
+  
+  navigate('/')
+};
   return (
           <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
 
@@ -15,18 +30,17 @@ function Navbar() {
           </nav>
           <div className="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div className="ms-md-auto pe-md-3 d-flex align-items-center">
+
               <div className="input-group input-group-outline">
                 <label className="form-label">Type here...</label>
                 <input type="text" className="form-control" />
               </div>
+              
             </div>
             <ul className="navbar-nav  justify-content-end">
-              <li className="nav-item d-flex align-items-center">
-                <a href="javascript:;" className="nav-link text-body font-weight-bold px-0">
-                  <i className="fa fa-user me-sm-1" />
-                  <span className="d-sm-inline d-none">Sign In</span>
-                </a>
-              </li>
+              
+              <li className="nav-item d-flex align-items-center">{user && <a  className="nav-link text-body font-weight-bold px-0" onClick={logout} height={15} width={15}>Logout</a>}</li>
+
               <li className="nav-item d-xl-none ps-3 d-flex align-items-center">
                 <a href="javascript:;" className="nav-link text-body p-0" id="iconNavbarSidenav">
                   <div className="sidenav-toggler-inner">
